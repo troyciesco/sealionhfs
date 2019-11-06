@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import Axios from "axios"
-import { Heading } from "./bruin"
+import { Heading } from "../bruin"
 
 const AxiosExample = () => {
 	const [data, setData] = useState(null)
@@ -32,7 +32,12 @@ const AxiosExample = () => {
 		return <div>Loading data from {url}</div>
 	}
 
-	return <Heading>{data.name}</Heading>
+	return (
+		<>
+			<Heading>Axios Example</Heading>
+			<Heading>{data.name}</Heading>
+		</>
+	)
 }
 
 export { AxiosExample }

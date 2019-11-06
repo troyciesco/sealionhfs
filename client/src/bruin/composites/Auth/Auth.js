@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import { StyledAuth, AuthButton } from "./Styles"
 import { Heading, Box, Input, Label } from "../../primitives"
-// I might be able to contain all the logic in this component by conditionally displaying whatever the action will be
-// When it switches over to login
 
 const InputBox = ({ children }) => {
 	return <Box mb="sm">{children}</Box>

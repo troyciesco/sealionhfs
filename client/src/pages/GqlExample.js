@@ -1,7 +1,7 @@
 import React from "react"
 import { Query } from "react-apollo"
 import { gql } from "apollo-boost"
-import { Heading } from "./bruin"
+import { Heading } from "../bruin"
 
 const query = gql`
 	query getProject {
@@ -23,11 +23,16 @@ function GqlExample() {
 					console.log(data)
 					let name = data.project.content.name
 					//console.log(project)
-					return <Heading>{name}</Heading>
+					return (
+						<>
+							<Heading>GQL Example</Heading>
+							<Heading>{name}</Heading>
+						</>
+					)
 				}
 			}}
 		</Query>
 	)
 }
 
-export default GqlExample
+export { GqlExample }
