@@ -14,6 +14,7 @@ const connectDB = require("./config/db")
 // Load env vars
 dotenv.config({ path: "./config/config.env" })
 // Route files
+const projects = require("./routes/projects")
 const auth = require("./routes/auth")
 const users = require("./routes/users")
 const errorHandler = require("./middleware/error")
@@ -61,6 +62,7 @@ app.use(cors())
 app.use(express.static(path.join(__dirname, "public")))
 
 // Mount routers
+app.use("/api/v1/projects", projects)
 app.use("/api/v1/auth", auth)
 app.use("/api/v1/users", users)
 

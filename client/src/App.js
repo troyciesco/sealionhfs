@@ -1,10 +1,16 @@
 import React from "react"
+import { ThemeProvider } from "styled-components"
+import { standard, GlobalStyle } from "./bruin/themes"
+import GqlExample from "./GqlExample"
+import { AxiosExample } from "./AxiosExample"
 
 function App() {
 	return (
-		<div>
-			<h1>Hello world</h1>
-		</div>
+		<ThemeProvider theme={standard}>
+			<GlobalStyle />
+			<GqlExample />
+			<AxiosExample />
+		</ThemeProvider>
 	)
 }
 
