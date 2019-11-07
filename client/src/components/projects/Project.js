@@ -5,15 +5,16 @@ const Project = ({ project }) => {
 	const projectContext = useContext(ProjectContext)
 	const { deleteProject, setCurrent, clearCurrent } = projectContext
 
-	const { id, name, strategy, stage, status } = project
+	const { _id, name, strategy, stage, status } = project
 
 	const onDelete = () => {
-		deleteProject(id)
+		deleteProject(_id)
 		clearCurrent()
 	}
 
 	return (
 		<div>
+			<h3>{_id}</h3>
 			<h3>{name}</h3>
 			<p>{strategy}</p>
 			<p>{stage}</p>

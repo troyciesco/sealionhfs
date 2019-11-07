@@ -2,9 +2,14 @@ import React from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { ThemeProvider } from "styled-components"
 import { standard, GlobalStyle } from "./bruin/themes"
-import { Header, Register, Login, Alert } from "./components"
+import { Layout, Header, Register, Login, Alert } from "./components"
 import { Home, GqlExample, AxiosExample, ProjectsPage } from "./pages"
 import { ProjectState, AuthState, AlertState } from "./context"
+import { setAuthToken, PrivateRoute } from "./utils"
+
+if (localStorage.squirrel) {
+	setAuthToken(localStorage.squirrel)
+}
 
 function App() {
 	return (
@@ -15,17 +20,17 @@ function App() {
 						<ThemeProvider theme={standard}>
 							<GlobalStyle />
 							<Header />
-							<div style={{ paddingTop: "51px" }}>
+							<Layout style={{ paddingTop: "51px" }}>
 								<Alert />
 								<Switch>
 									<Route path="/" exact component={Home} />
-									<Route path="/projects" exact component={ProjectsPage} />
+									<PrivateRoute path="/projects" exact component={ProjectsPage} />
 									<Route path="/axios" component={AxiosExample} />
 									<Route path="/gql" component={GqlExample} />
 									<Route path="/login" component={Login} />
 									<Route path="/register" component={Register} />
 								</Switch>
-							</div>
+							</Layout>
 						</ThemeProvider>
 					</Router>
 				</AlertState>

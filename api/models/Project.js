@@ -9,6 +9,18 @@ const ProjectSchema = new mongoose.Schema(
 			trim: true,
 			maxlength: [50, "Name cannot be more than 50 characters"]
 		},
+		strategy: {
+			type: String,
+			default: "Fix and Flip"
+		},
+		stage: {
+			type: String,
+			default: "Lead"
+		},
+		status: {
+			type: String,
+			default: "Active"
+		},
 		createdAt: {
 			type: Date,
 			default: Date.now

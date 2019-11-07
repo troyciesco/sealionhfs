@@ -8,19 +8,24 @@ const InputBox = ({ children }) => {
 	return <Box mb="sm">{children}</Box>
 }
 
-const Register = () => {
+const Register = props => {
 	const alertContext = useContext(AlertContext)
 	const authContext = useContext(AuthContext)
 
 	const { setAlert } = alertContext
-	const { register, error, clearErrors } = authContext
+	const { register, error, clearErrors, isAuthenticated } = authContext
 
 	useEffect(() => {
-		if (error !== null) {
+		if (isAuthenticated) {
+			props.history.push("/")
+		}
+
+		if (error && error !== null && error.msg !== undefined) {
 			setAlert(error, "danger")
 			clearErrors()
 		}
-	}, [error, setAlert, clearErrors])
+		// eslint-disable-next-line
+	}, [error, isAuthenticated, props.history])
 
 	const [user, setUser] = useState({
 		name: "",

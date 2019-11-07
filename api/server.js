@@ -47,7 +47,7 @@ app.use(xss())
 // Rate limiting
 const limiter = rateLimit({
 	windowMs: 10 * 60 * 1000, // 10 min
-	max: 100
+	max: 1000000
 })
 
 app.use(limiter)
@@ -56,7 +56,7 @@ app.use(limiter)
 app.use(hpp())
 
 // Enable CORS
-app.use(cors())
+app.use(cors({ origin: "http://localhost:3000" }))
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")))

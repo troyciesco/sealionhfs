@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
+import { AlertContext, AuthContext } from "../../context"
 import { StyledAuth, AuthButton } from "./Styles"
 import { Heading, Box, Input, Label } from "../../bruin"
 
@@ -7,7 +8,25 @@ const InputBox = ({ children }) => {
 	return <Box mb="sm">{children}</Box>
 }
 
-const Login = () => {
+const Login = props => {
+	const alertContext = useContext(AlertContext)
+	const authContext = useContext(AuthContext)
+
+	const { setAlert } = alertContext
+	const { login, error, clearErrors, isAuthenticated } = authContext
+	//@todo: make this happen before the component mounts
+	useEffect(() => {
+		if (isAuthenticated) {
+			props.history.push("/")
+		}
+
+		if (error !== null && error !== undefined) {
+			setAlert(error, "danger")
+			clearErrors()
+		}
+		// eslint-disable-next-line
+	}, [error, isAuthenticated, props.history])
+
 	const [user, setUser] = useState({
 		email: "",
 		password: ""
@@ -19,7 +38,14 @@ const Login = () => {
 
 	const handleSubmit = event => {
 		event.preventDefault()
-		console.log("login submit")
+		if (email === "" || password === "") {
+			setAlert("Please enter all fields.", "danger")
+		} else {
+			login({
+				email,
+				password
+			})
+		}
 	}
 
 	return (

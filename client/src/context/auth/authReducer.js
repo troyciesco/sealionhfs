@@ -8,11 +8,13 @@ import {
 	LOGOUT,
 	CLEAR_ERRORS
 } from "../types"
-
+import axios from "axios"
+// @todo: figure out 1) why auth works if i use squirrel instead of token and 2) remove squirrel
 export default (state, action) => {
 	switch (action.type) {
 		case REGISTER_SUCCESS:
-			localStorage.setItem("token", action.payload.token)
+		case LOGIN_SUCCESS:
+			localStorage.setItem("squirrel", action.payload.token)
 			return {
 				...state,
 				...action.payload,
@@ -20,7 +22,11 @@ export default (state, action) => {
 				loading: false
 			}
 		case REGISTER_FAIL:
-			localStorage.removeItem("token")
+		case AUTH_ERROR:
+		case LOGIN_FAIL:
+		case LOGOUT:
+			localStorage.removeItem("squirrel")
+			delete axios.defaults.headers.common["Authorization"]
 			return {
 				...state,
 				token: null,
@@ -31,23 +37,10 @@ export default (state, action) => {
 			}
 		case USER_LOADED:
 			return {
-				...state
-			}
-		case AUTH_ERROR:
-			return {
-				...state
-			}
-		case LOGIN_SUCCESS:
-			return {
-				...state
-			}
-		case LOGIN_FAIL:
-			return {
-				...state
-			}
-		case LOGOUT:
-			return {
-				...state
+				...state,
+				isAuthenticated: true,
+				loading: false,
+				user: action.payload.data
 			}
 		case CLEAR_ERRORS:
 			return {

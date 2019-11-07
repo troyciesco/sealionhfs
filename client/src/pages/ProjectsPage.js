@@ -1,8 +1,13 @@
 import React from "react"
-import { Projects } from "../components/projects"
+import { Projects, ProjectForm } from "../components/projects"
 
 const ProjectsPage = () => {
-	return <Projects />
+	return (
+		<>
+			<ProjectForm />
+			<Projects />
+		</>
+	)
 }
 
 export { ProjectsPage }
