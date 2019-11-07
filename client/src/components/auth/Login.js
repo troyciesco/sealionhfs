@@ -61,7 +61,7 @@ const Login = props => {
 								<Label htmlFor="email">Email</Label>
 							</div>
 							<div>
-								<Input name="email" type="email" value={email} shade="t4" onChange={onChange} />
+								<Input name="email" type="email" value={email} onChange={onChange} />
 							</div>
 						</InputBox>
 						<InputBox>
@@ -69,13 +69,7 @@ const Login = props => {
 								<Label htmlFor="password">Password</Label>
 							</div>
 							<div>
-								<Input
-									name="password"
-									type="password"
-									value={password}
-									shade="t4"
-									onChange={onChange}
-								/>
+								<Input name="password" type="password" value={password} onChange={onChange} />
 							</div>
 						</InputBox>
 					</Box>

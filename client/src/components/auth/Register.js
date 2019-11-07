@@ -66,14 +66,7 @@ const Register = props => {
 								<Label htmlFor="name">Name</Label>
 							</div>
 							<div>
-								<Input
-									name="name"
-									type="name"
-									value={name}
-									shade="t4"
-									required
-									onChange={onChange}
-								/>
+								<Input name="name" type="name" value={name} required onChange={onChange} />
 							</div>
 						</InputBox>
 						<InputBox pb="sm">
@@ -81,14 +74,7 @@ const Register = props => {
 								<Label htmlFor="email">Email</Label>
 							</div>
 							<div>
-								<Input
-									name="email"
-									type="email"
-									value={email}
-									shade="t4"
-									required
-									onChange={onChange}
-								/>
+								<Input name="email" type="email" value={email} required onChange={onChange} />
 							</div>
 						</InputBox>
 						<InputBox>
@@ -100,7 +86,6 @@ const Register = props => {
 									name="password"
 									type="password"
 									value={password}
-									shade="t4"
 									minLength="8"
 									required
 									onChange={onChange}
@@ -116,7 +101,6 @@ const Register = props => {
 									name="confirm"
 									type="password"
 									value={confirm}
-									shade="t4"
 									minLength="8"
 									required
 									onChange={onChange}

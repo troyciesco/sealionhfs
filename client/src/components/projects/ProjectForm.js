@@ -14,7 +14,8 @@ const ProjectForm = () => {
 				name: "",
 				strategy: "",
 				stage: "",
-				status: ""
+				status: "",
+				address: ""
 			})
 		}
 	}, [projectContext, current])
@@ -23,10 +24,11 @@ const ProjectForm = () => {
 		name: "",
 		strategy: "",
 		stage: "",
-		status: ""
+		status: "",
+		address: ""
 	})
 
-	const { name, strategy, stage, status } = project
+	const { name, strategy, stage, status, address } = project
 
 	const onChange = event => setProject({ ...project, [event.target.name]: event.target.value })
 
@@ -57,6 +59,13 @@ const ProjectForm = () => {
 			/>
 			<input type="text" name="stage" placeholder="stage" value={stage} onChange={onChange} />
 			<input type="text" name="status" placeholder="status" value={status} onChange={onChange} />
+			<input
+				type="textarea"
+				name="address"
+				placeholder="address"
+				value={address}
+				onChange={onChange}
+			/>
 			<div>
 				<button type="submit">{current ? "Update Project" : "Add Project"}</button>
 			</div>
