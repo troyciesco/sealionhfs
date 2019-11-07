@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import { ProjectContext } from "../../context"
+import { StyledProjectForm, ProjectButton } from "./Styles"
+import { Input } from "../../bruin"
 
 const ProjectForm = () => {
 	const projectContext = useContext(ProjectContext)
@@ -47,34 +49,36 @@ const ProjectForm = () => {
 	}
 
 	return (
-		<form onSubmit={onSubmit}>
+		<StyledProjectForm>
 			<h2>{current ? "Update Project" : "Add Project"}</h2>
-			<input type="text" name="name" placeholder="name" value={name} onChange={onChange} />
-			<input
-				type="text"
-				name="strategy"
-				placeholder="strategy"
-				value={strategy}
-				onChange={onChange}
-			/>
-			<input type="text" name="stage" placeholder="stage" value={stage} onChange={onChange} />
-			<input type="text" name="status" placeholder="status" value={status} onChange={onChange} />
-			<input
-				type="textarea"
-				name="address"
-				placeholder="address"
-				value={address}
-				onChange={onChange}
-			/>
-			<div>
-				<button type="submit">{current ? "Update Project" : "Add Project"}</button>
-			</div>
-			{current && (
+			<form onSubmit={onSubmit}>
+				<Input type="text" name="name" placeholder="name" value={name} onChange={onChange} />
+				<Input
+					type="text"
+					name="strategy"
+					placeholder="strategy"
+					value={strategy}
+					onChange={onChange}
+				/>
+				<Input type="text" name="stage" placeholder="stage" value={stage} onChange={onChange} />
+				<Input type="text" name="status" placeholder="status" value={status} onChange={onChange} />
+				<Input
+					type="text"
+					name="address"
+					placeholder="address"
+					value={address}
+					onChange={onChange}
+				/>
 				<div>
-					<button onClick={clearAll}>Clear</button>
+					<ProjectButton type="submit">{current ? "Update Project" : "Add Project"}</ProjectButton>
 				</div>
-			)}
-		</form>
+				{current && (
+					<div>
+						<ProjectButton onClick={clearAll}>Clear</ProjectButton>
+					</div>
+				)}
+			</form>
+		</StyledProjectForm>
 	)
 }
 
