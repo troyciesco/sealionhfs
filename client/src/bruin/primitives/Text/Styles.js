@@ -7,4 +7,5 @@ export const StyledText = styled.p`
 	${textFontSize};
 	${spacingProps};
 	color: ${props => props.theme.colors[props.color][props.shade]};
+	text-align: ${props => props.align};
 `
