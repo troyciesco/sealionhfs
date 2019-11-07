@@ -16,7 +16,6 @@ export const StyledProjectForm = styled(Box)`
 `
 
 export const ProjectButton = styled(Button)`
-	width: 80%;
 	display: block;
 	margin: 0 auto;
 	margin-bottom: ${props => props.theme.spaces["md"]};
