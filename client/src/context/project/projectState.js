@@ -5,8 +5,8 @@ import {
 	ADD_PROJECT,
 	DELETE_PROJECT,
 	SET_CURRENT,
-	CLEAR_CURRENT
-	// UPDATE_PROJECT,
+	CLEAR_CURRENT,
+	UPDATE_PROJECT
 	// FILTER_PROJECTS,
 	// CLEAR_FILTER
 } from "../types"
@@ -64,6 +64,9 @@ const ProjectState = props => {
 	}
 
 	// Update Project
+	const updateProject = project => {
+		dispatch({ type: UPDATE_PROJECT, payload: project })
+	}
 
 	// Filter Projects
 
@@ -75,6 +78,7 @@ const ProjectState = props => {
 				projects: state.projects,
 				current: state.current,
 				addProject,
+				updateProject,
 				deleteProject,
 				setCurrent,
 				clearCurrent

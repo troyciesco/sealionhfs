@@ -1,5 +1,6 @@
 import {
 	ADD_PROJECT,
+	UPDATE_PROJECT,
 	DELETE_PROJECT,
 	SET_CURRENT,
 	CLEAR_CURRENT
@@ -14,6 +15,13 @@ export default (state, action) => {
 			return {
 				...state,
 				projects: [...state.projects, action.payload]
+			}
+		case UPDATE_PROJECT:
+			return {
+				...state,
+				projects: state.projects.map(project =>
+					project.id === action.payload.id ? action.payload : project
+				)
 			}
 		case DELETE_PROJECT:
 			return {
