@@ -1,5 +1,6 @@
 import {
 	GET_PROJECTS,
+	GET_PROJECT,
 	ADD_PROJECT,
 	UPDATE_PROJECT,
 	DELETE_PROJECT,
@@ -17,6 +18,12 @@ export default (state, action) => {
 			return {
 				...state,
 				projects: action.payload,
+				loading: false
+			}
+		case GET_PROJECT:
+			return {
+				...state,
+				current: action.payload,
 				loading: false
 			}
 		case ADD_PROJECT:

@@ -10,7 +10,6 @@ const Projects = () => {
 		getProjects()
 		// eslint-disable-next-line
 	}, [])
-	console.log(projects)
 	return (
 		<>
 			{projects && projects !== null && !loading ? (

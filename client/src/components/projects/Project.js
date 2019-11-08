@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import { Link } from "react-router-dom"
 import { ProjectContext } from "../../context"
 
 const Project = ({ project }) => {
@@ -14,7 +15,9 @@ const Project = ({ project }) => {
 
 	return (
 		<div>
-			<h3>{_id}</h3>
+			<Link to={`/projects/${_id}`} onClick={() => setCurrent(project)}>
+				<h3>{_id}</h3>
+			</Link>
 			<h3>{name}</h3>
 			<p>{strategy}</p>
 			<p>{stage}</p>

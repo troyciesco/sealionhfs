@@ -4,6 +4,7 @@ import { ProjectContext } from "./projectContext"
 import projectReducer from "./projectReducer"
 import {
 	GET_PROJECTS,
+	GET_PROJECT,
 	CLEAR_PROJECTS,
 	ADD_PROJECT,
 	DELETE_PROJECT,
@@ -30,6 +31,18 @@ const ProjectState = props => {
 				type: GET_PROJECTS,
 				payload: res.data.data
 			})
+		} catch (err) {
+			dispatch({ PROJECT_ERROR, payload: err.response.data.error })
+		}
+	}
+	const getProject = async pathname => {
+		try {
+			const res = await axios.get(`http://localhost:5000/api/v1${pathname}`)
+			dispatch({
+				type: GET_PROJECT,
+				payload: res.data.content
+			})
+			setCurrent(res.data.content)
 		} catch (err) {
 			dispatch({ PROJECT_ERROR, payload: err.response.data.error })
 		}
@@ -102,6 +115,7 @@ const ProjectState = props => {
 				current: state.current,
 				error: state.error,
 				getProjects,
+				getProject,
 				addProject,
 				updateProject,
 				deleteProject,
