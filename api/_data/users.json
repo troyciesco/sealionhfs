@@ -2,6 +2,7 @@
 	{
 		"_id": "5d7a514b5d2c12c7449be045",
 		"name": "Troy Ciesco",
+		"company": "Ciesco Real Estate",
 		"email": "tmciesco@gmail.com",
 		"role": "user",
 		"password": "testpass"
@@ -9,6 +10,7 @@
 	{
 		"_id": "5c8a1d5b0190b214360dc031",
 		"name": "Byron Torrente",
+		"company": "Torrente Home Pros",
 		"email": "byron@gmail.com",
 		"role": "user",
 		"password": "testpass"

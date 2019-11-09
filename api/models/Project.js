@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const slugify = require("slugify")
 const geocoder = require("../utils/geocoder")
 
 const ProjectSchema = new mongoose.Schema(
@@ -10,6 +11,7 @@ const ProjectSchema = new mongoose.Schema(
 			trim: true,
 			maxlength: [50, "Name cannot be more than 50 characters"]
 		},
+		slug: String,
 		address: {
 			type: String,
 			required: [true, "Please add an address"]
@@ -58,6 +60,12 @@ const ProjectSchema = new mongoose.Schema(
 		toObject: { virtuals: true }
 	}
 )
+
+// Create project slug from the name and company
+ProjectSchema.pre("save", async function(next) {
+	this.slug = slugify(this.name, { lower: true })
+	next()
+})
 
 // Geocode & create location field
 ProjectSchema.pre("save", async function(next) {

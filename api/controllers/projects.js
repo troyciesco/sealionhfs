@@ -14,10 +14,10 @@ exports.getProjects = asyncHandler(async (req, res, next) => {
 // @route   GET /api/v1/projects/:id
 // @access  Public
 exports.getProject = asyncHandler(async (req, res, next) => {
-	const project = await Project.findById(req.params.id)
+	const project = await Project.findOne(req.params.slug)
 	if (!project) {
 		// return res.status(400).json({ success: false })
-		return next(new ErrorResponse(`Project not found with id of ${req.params.id}.`, 404))
+		return next(new ErrorResponse(`Project not found with slug of ${req.params.slug}.`, 404))
 	}
 	res.status(200).json({ success: true, content: project })
 })
