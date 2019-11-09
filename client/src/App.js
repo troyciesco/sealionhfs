@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { ThemeProvider } from "styled-components"
 import { standard, GlobalStyle } from "./bruin/themes"
 import { Layout, Header, Register, Login, Alert } from "./components"
-import { Home, GqlExample, AxiosExample, DashboardPage } from "./pages"
+import { Home, GqlExample, AxiosExample, DashboardPage, AccountPage } from "./pages"
 import { ProjectState, AuthState, AlertState } from "./context"
 import { setAuthToken, PrivateRoute } from "./utils"
 // import { TestProject } from "./components/projects"
@@ -54,6 +54,7 @@ function App({ history }) {
 									{/* <PrivateRoute path="/projects" exact component={ProjectsPage} /> */}
 									{/* <PrivateRoute path={`/projects/:id`} component={TestProject} /> */}
 									<PrivateRoute path="/dashboard" component={DashboardPage} />
+									<PrivateRoute path="/account" component={AccountPage} />
 									<Route path="/axios" component={AxiosExample} />
 									<Route path="/gql" component={GqlExample} />
 									<Route path="/login" component={Login} />

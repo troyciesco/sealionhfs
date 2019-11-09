@@ -15,10 +15,9 @@ const Header = () => {
 	}
 	const authLinks = (
 		<>
-			<Link to="/dashboard/">Dash</Link>
-			<p>
+			<Link to="/account">
 				Hello {user && user.name} from {user && user.company}
-			</p>
+			</Link>
 			<a onClick={handleLogout} href="#!">
 				Logout
 			</a>
@@ -35,7 +34,7 @@ const Header = () => {
 		<BruinHeader
 			logo={
 				<Heading fontSize="xs" color="primary" shade="light">
-					<Link to="/">Sea Lion HFS</Link>
+					<Link to={isAuthenticated ? `/dashboard/projects` : `/`}>Sea Lion HFS</Link>
 				</Heading>
 			}
 		>
