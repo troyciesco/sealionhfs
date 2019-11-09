@@ -29,7 +29,7 @@ const Project = ({ project }) => {
 	const projectContext = useContext(ProjectContext)
 	const { deleteProject, setCurrent, clearCurrent } = projectContext
 
-	const { _id, name, strategy, stage, status, location } = project
+	const { _id, slug, name, strategy, stage, status, location } = project
 
 	const onDelete = () => {
 		//deleteProject(_id)
@@ -40,7 +40,7 @@ const Project = ({ project }) => {
 	return (
 		<StyledProjectCard elevation="2">
 			<CardContent>
-				<Link to={`/dashboard/projects/${_id}`} onClick={() => setCurrent(project)}>
+				<Link to={`/dashboard/projects/${slug}`} onClick={() => setCurrent(project)}>
 					<Heading as="h3" fontSize="ti">
 						{name}
 					</Heading>
@@ -56,7 +56,7 @@ const Project = ({ project }) => {
 				<Button onClick={onDelete} size="xs" mr="sm" mode="danger" level="other" width="7.5rem">
 					DELETE
 				</Button>
-				<Link to={`/dashboard/projects/${_id}`} onClick={() => setCurrent(project)}>
+				<Link to={`/dashboard/projects/${slug}`} onClick={() => setCurrent(project)}>
 					<Button onClick={() => setCurrent(project)} size="xs" width="7.5rem">
 						VIEW
 					</Button>

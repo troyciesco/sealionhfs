@@ -16,7 +16,9 @@ const Header = () => {
 	const authLinks = (
 		<>
 			<Link to="/dashboard/">Dash</Link>
-			<p>Hello {user && user.name}</p>
+			<p>
+				Hello {user && user.name} from {user && user.company}
+			</p>
 			<a onClick={handleLogout} href="#!">
 				Logout
 			</a>

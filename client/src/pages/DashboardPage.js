@@ -82,7 +82,7 @@ const DashboardPage = () => {
 			<Layout>
 				<Switch>
 					<Route path="/dashboard/projects" exact component={Projects} />
-					<PrivateRoute path={`/dashboard/projects/:id`} component={TestProject} />
+					<PrivateRoute path={`/dashboard/projects/:slug`} component={TestProject} />
 					<Route path="/dashboard/repairs" component={Repairs} />
 					<Route path="/dashboard/tasks" component={Tasks} />
 					<Route path="/dashboard/budget" component={Budget} />
