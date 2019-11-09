@@ -5,5 +5,12 @@
 		"email": "tmciesco@gmail.com",
 		"role": "user",
 		"password": "testpass"
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc031",
+		"name": "Byron Torrente",
+		"email": "byron@gmail.com",
+		"role": "user",
+		"password": "testpass"
 	}
 ]
