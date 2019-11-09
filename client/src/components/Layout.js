@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
 		// eslint-disable-next-line
 	}, [])
 
-	return <div style={{ paddingTop: "51px" }}>{children}</div>
+	return <div style={{ paddingTop: "38px" }}>{children}</div>
 }
 
 export { Layout }

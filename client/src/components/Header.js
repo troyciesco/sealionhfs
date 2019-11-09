@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
-import { BruinHeader } from "../bruin"
+import { BruinHeader, Heading } from "../bruin"
 import { AuthContext, ProjectContext } from "../context"
 
 const Header = () => {
@@ -32,9 +32,9 @@ const Header = () => {
 	return (
 		<BruinHeader
 			logo={
-				<h1>
-					<Link to="/">Grayhaber</Link>
-				</h1>
+				<Heading fontSize="xs" color="primary" shade="light">
+					<Link to="/">Sea Lion HFS</Link>
+				</Heading>
 			}
 		>
 			<Link to="/">Home</Link>

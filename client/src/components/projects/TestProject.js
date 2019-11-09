@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { ProjectContext } from "../../context"
 import { Heading, Text } from "../../bruin"
+import { TopBar } from "./TopBar"
 
 const TestProject = props => {
 	const projectContext = useContext(ProjectContext)
@@ -17,7 +18,7 @@ const TestProject = props => {
 		<>
 			{current && (
 				<div>
-					<Heading>{current.name}</Heading>
+					<TopBar name={current.name} address={current.location.address} />
 					<Text>{current.strategy}</Text>
 					<Text>{current.stage}</Text>
 					<Text>{current.status}</Text>

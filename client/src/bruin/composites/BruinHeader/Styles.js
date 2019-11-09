@@ -3,8 +3,9 @@ import styled from "styled-components"
 export const StyledHeader = styled.header`
 	width: 100%;
 	position: fixed;
-	background: #f8f8f8;
-	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	background: ${props => props.theme.colors["primary"]["dark"]};
+	color: ${props => props.theme.colors["primary"]["light"]};
+	/* box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); */
 	z-index: 1000;
 `
 export const Burger = styled.button`

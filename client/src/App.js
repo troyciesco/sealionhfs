@@ -47,7 +47,7 @@ function App({ history }) {
 						<ThemeProvider theme={standard}>
 							<GlobalStyle />
 							<Header />
-							<Layout style={{ paddingTop: "51px" }}>
+							<Layout style={{ paddingTop: "38px" }}>
 								<Alert />
 								<Switch>
 									<Route path="/" exact component={Home} />

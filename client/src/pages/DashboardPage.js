@@ -8,7 +8,7 @@ import { PrivateRoute } from "../utils"
 
 const SideBar = styled.div`
 	position: fixed;
-	height: calc(100vh - 51px);
+	height: calc(100vh - 38px);
 	width: 15rem;
 	background: ${props => props.theme.colors["primary"]["s2"]};
 	display: flex;
