@@ -8,7 +8,7 @@ const TestProject = props => {
 
 	useEffect(() => {
 		if (!current || current === null) {
-			getProject(window.location.pathname)
+			getProject(window.location.pathname.slice(10))
 		}
 		// eslint-disable-next-line
 	}, [props.history])
@@ -16,13 +16,13 @@ const TestProject = props => {
 	return (
 		<>
 			{current && (
-				<>
+				<div>
 					<Heading>{current.name}</Heading>
 					<Text>{current.strategy}</Text>
 					<Text>{current.stage}</Text>
 					<Text>{current.status}</Text>
 					<Text>{current.location.address}</Text>
-				</>
+				</div>
 			)}
 		</>
 	)

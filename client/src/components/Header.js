@@ -25,8 +25,8 @@ const Header = () => {
 
 	const guestLinks = (
 		<>
+			<Link to="/dashboard/">Dash</Link>
 			<Link to="/login/">Login</Link>
-			<Link to="/register/">Register</Link>
 		</>
 	)
 

@@ -1,7 +1,14 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Button, Box } from "../bruin"
 const Home = () => {
-	return <Link to="/projects/">Go to Projects</Link>
+	return (
+		<Box mar="hu" pad="hu">
+			<Button>Projects</Button>
+			<Box mar="hu">
+				<Button>Width</Button>
+			</Box>
+		</Box>
+	)
 }
 
 export { Home }

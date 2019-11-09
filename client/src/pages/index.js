@@ -1,4 +1,5 @@
 export { Home } from "./Home"
+export { DashboardPage } from "./DashboardPage"
 export { ProjectsPage } from "./ProjectsPage"
 export { AxiosExample } from "./AxiosExample"
 export { GqlExample } from "./GqlExample"

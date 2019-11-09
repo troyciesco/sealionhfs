@@ -17,7 +17,7 @@ const Login = props => {
 	//@todo: make this happen before the component mounts
 	useEffect(() => {
 		if (isAuthenticated) {
-			props.history.push("/")
+			props.history.push("/dashboard/projects")
 		}
 
 		if (error !== null && error !== undefined) {

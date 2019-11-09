@@ -15,7 +15,7 @@ const Project = ({ project }) => {
 
 	return (
 		<div>
-			<Link to={`/projects/${_id}`} onClick={() => setCurrent(project)}>
+			<Link to={`/dashboard/projects/${_id}`} onClick={() => setCurrent(project)}>
 				<h3>{_id}</h3>
 			</Link>
 			<h3>{name}</h3>
