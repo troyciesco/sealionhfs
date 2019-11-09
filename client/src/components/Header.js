@@ -15,7 +15,7 @@ const Header = () => {
 	}
 	const authLinks = (
 		<>
-			<Link to="/projects/">Projects</Link>
+			<Link to="/dashboard/">Dash</Link>
 			<p>Hello {user && user.name}</p>
 			<a onClick={handleLogout} href="#!">
 				Logout
@@ -25,7 +25,6 @@ const Header = () => {
 
 	const guestLinks = (
 		<>
-			<Link to="/dashboard/">Dash</Link>
 			<Link to="/login/">Login</Link>
 		</>
 	)
@@ -40,7 +39,6 @@ const Header = () => {
 		>
 			<Link to="/">Home</Link>
 			<Link to="/axios/">Axios</Link>
-			<Link to="/gql/">GQL</Link>
 			{isAuthenticated ? authLinks : guestLinks}
 		</BruinHeader>
 	)
