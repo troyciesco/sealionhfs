@@ -45,6 +45,10 @@ const ProjectSchema = new mongoose.Schema(
 			type: String,
 			default: "Active"
 		},
+		photo: {
+			type: String,
+			default: `${process.env.FILE_UPLOAD_PATH}/no-photo.png`
+		},
 		createdAt: {
 			type: Date,
 			default: Date.now
