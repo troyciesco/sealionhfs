@@ -21,7 +21,13 @@
 		"react-router-dom": "^5.1.2",
 		"react-scripts": "3.2.0",
 		"styled-components": "^4.4.1",
-		"typeface-quicksand": "0.0.71"
+		"typeface-anaheim": "0.0.72",
+		"typeface-assistant": "0.0.75",
+		"typeface-changa": "0.0.61",
+		"typeface-cormorant-garamond": "0.0.72",
+		"typeface-k2d": "0.0.61",
+		"typeface-quicksand": "0.0.71",
+		"typeface-spectral": "0.0.72"
 	},
 	"scripts": {
 		"start": "react-scripts start",

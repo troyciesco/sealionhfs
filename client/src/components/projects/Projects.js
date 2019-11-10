@@ -10,6 +10,12 @@ const ProjectDeck = styled.div`
 	grid-template-areas: "spot spot spot";
 	grid-column-gap: 1rem;
 	grid-row-gap: 1.5rem;
+
+	@media screen and (max-width: 1700px) {
+		width: 80%;
+		grid-template-areas: "spot spot";
+		grid-row-gap: 2.5rem;
+	}
 `
 
 const Projects = () => {

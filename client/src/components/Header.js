@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import { BruinHeader, Heading } from "../bruin"
 import { AuthContext, ProjectContext } from "../context"
+import logoIcon from "../img/logo-icon.svg"
 
 const Header = () => {
 	const authContext = useContext(AuthContext)
@@ -15,9 +16,7 @@ const Header = () => {
 	}
 	const authLinks = (
 		<>
-			<Link to="/account">
-				Hello {user && user.name} from {user && user.company}
-			</Link>
+			<Link to="/account">Hello {user && user.name}</Link>
 			<a onClick={handleLogout} href="#!">
 				Logout
 			</a>
@@ -33,9 +32,9 @@ const Header = () => {
 	return (
 		<BruinHeader
 			logo={
-				<Heading fontSize="xs" color="primary" shade="light">
-					<Link to={isAuthenticated ? `/dashboard/projects` : `/`}>Sea Lion HFS</Link>
-				</Heading>
+				<Link to={isAuthenticated ? `/dashboard/projects` : `/`}>
+					<img src={logoIcon} alt="logo" height="50px" />
+				</Link>
 			}
 		>
 			<Link to="/">Home</Link>

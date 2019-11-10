@@ -1,12 +1,11 @@
 import React from "react"
 import { Button, Box } from "../bruin"
+import logo from "../img/logo.svg"
+
 const Home = () => {
 	return (
 		<Box mar="hu" pad="hu">
-			<Button>Projects</Button>
-			<Box mar="hu">
-				<Button>Width</Button>
-			</Box>
+			<img src={logo} alt="logo" height="50px" />
 		</Box>
 	)
 }

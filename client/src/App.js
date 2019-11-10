@@ -18,7 +18,8 @@ import {
 	faTasks,
 	faCog,
 	faLifeRing,
-	faUsers
+	faUsers,
+	faMapMarkerAlt
 } from "@fortawesome/free-solid-svg-icons"
 
 library.add(
@@ -31,7 +32,8 @@ library.add(
 	faTasks,
 	faCog,
 	faLifeRing,
-	faUsers
+	faUsers,
+	faMapMarkerAlt
 )
 
 if (localStorage.squirrel) {
@@ -47,7 +49,7 @@ function App({ history }) {
 						<ThemeProvider theme={standard}>
 							<GlobalStyle />
 							<Header />
-							<Layout style={{ paddingTop: "38px" }}>
+							<Layout style={{ paddingTop: "61px" }}>
 								<Alert />
 								<Switch>
 									<Route path="/" exact component={Home} />

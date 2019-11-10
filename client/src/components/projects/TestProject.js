@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { ProjectContext } from "../../context"
 import { Heading, Text } from "../../bruin"
 import { TopBar } from "./TopBar"
+import noPhoto from "../../img/no-photo.png"
 
 const TestProject = props => {
 	const projectContext = useContext(ProjectContext)
@@ -23,6 +24,7 @@ const TestProject = props => {
 					<Text>{current.stage}</Text>
 					<Text>{current.status}</Text>
 					<Text>{current.location.address}</Text>
+					<img src={noPhoto} alt="photo-placeholder" />
 				</div>
 			)}
 		</>

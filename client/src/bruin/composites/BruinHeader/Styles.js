@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const StyledHeader = styled.header`
 	width: 100%;
 	position: fixed;
+	padding: 10px 0;
 	background: ${props => props.theme.colors["primary"]["dark"]};
 	color: ${props => props.theme.colors["primary"]["light"]};
 	/* box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); */
@@ -17,7 +18,7 @@ export const Burger = styled.button`
 `
 
 export const HeaderContainer = styled.div`
-	width: 90%;
+	width: 95%;
 	margin: 0 auto;
 	display: grid;
 	grid-template-areas: "logo nav";
@@ -27,7 +28,9 @@ export const HeaderContainer = styled.div`
 	}
 `
 
-export const HeaderLogo = styled.div``
+export const HeaderLogo = styled.div`
+	height: 50px;
+`
 
 export const HeaderNav = styled.nav`
 	grid-area: nav;
