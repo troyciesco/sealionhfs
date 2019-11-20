@@ -8,6 +8,7 @@ import { ProjectState, AuthState, AlertState } from "./context"
 import { setAuthToken, PrivateRoute } from "./utils"
 // import { TestProject } from "./components/projects"
 import { library } from "@fortawesome/fontawesome-svg-core"
+import { CSSTransition, TransitionGroup } from "react-transition-group"
 import {
 	faHome,
 	faMoneyBill,
@@ -21,6 +22,7 @@ import {
 	faUsers,
 	faMapMarkerAlt
 } from "@fortawesome/free-solid-svg-icons"
+import "./app.css"
 
 library.add(
 	faHome,
@@ -51,17 +53,59 @@ function App({ history }) {
 							<Header />
 							<Layout style={{ paddingTop: "61px" }}>
 								<Alert />
-								<Switch>
-									<Route path="/" exact component={Home} />
-									{/* <PrivateRoute path="/projects" exact component={ProjectsPage} /> */}
-									{/* <PrivateRoute path={`/projects/:id`} component={TestProject} /> */}
-									<PrivateRoute path="/dashboard" component={DashboardPage} />
-									<PrivateRoute path="/account" component={AccountPage} />
-									<Route path="/axios" component={AxiosExample} />
-									<Route path="/gql" component={GqlExample} />
-									<Route path="/login" component={Login} />
-									<Route path="/register" component={Register} />
-								</Switch>
+								<Route
+									render={({ location }) => (
+										<TransitionGroup>
+											<CSSTransition key={location.key} classNames="fade" timeout={300}>
+												<Switch location={location}>
+													<Route
+														path="/"
+														exact
+														render={routeProps => (
+															<div className="page">
+																<Home {...routeProps} />
+															</div>
+														)}
+													/>
+													<PrivateRoute path="/dashboard" component={DashboardPage} />
+													<PrivateRoute path="/account" component={AccountPage} />
+													<Route
+														path="/axios"
+														render={routeProps => (
+															<div className="page">
+																<AxiosExample {...routeProps} />
+															</div>
+														)}
+													/>
+													<Route
+														path="/gql"
+														render={routeProps => (
+															<div className="page">
+																<GqlExample {...routeProps} />
+															</div>
+														)}
+													/>
+													<Route
+														path="/login"
+														render={routeProps => (
+															<div className="page">
+																<Login {...routeProps} />
+															</div>
+														)}
+													/>
+													<Route
+														path="/register"
+														render={routeProps => (
+															<div className="page">
+																<Register {...routeProps} />
+															</div>
+														)}
+													/>
+												</Switch>
+											</CSSTransition>
+										</TransitionGroup>
+									)}
+								/>
 							</Layout>
 						</ThemeProvider>
 					</Router>

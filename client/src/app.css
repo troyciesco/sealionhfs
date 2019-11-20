@@ -1,0 +1,14 @@
+.fade-exit {
+	opacity: 1;
+}
+
+.fade-exit-active {
+	opacity: 0;
+	transition: opacity 300ms ease-out;
+}
+
+.page {
+	height: 100%;
+	position: fixed;
+	width: 100%;
+}
