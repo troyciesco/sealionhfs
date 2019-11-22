@@ -19,7 +19,7 @@
 	},
 	{
 		"_id": "5d725a037b292f5f8ceff787",
-		"user": "5d7a514b5d2c12c7449be045",
+		"user": "5c8a1d5b0190b214360dc031",
 		"name": "Rental in Storrs",
 		"address": "41 Crystal Lane Apt B Storrs CT 06268",
 		"strategy": "BRRRR",
@@ -37,7 +37,7 @@
 	},
 	{
 		"_id": "5d7a3595b721c3bb38f1f5d9",
-		"user": "5d7a514b5d2c12c7449be045",
+		"user": "5c8a1d5b0190b214360dc031",
 		"name": "Wholesale on Oak Street",
 		"address": "45 Oak Street",
 		"strategy": "Wholesale",

@@ -17,6 +17,7 @@ dotenv.config({ path: "./config/config.env" })
 const projects = require("./routes/projects")
 const auth = require("./routes/auth")
 const users = require("./routes/users")
+const estimates = require("./routes/estimates")
 const errorHandler = require("./middleware/error")
 
 // Connect to database
@@ -65,6 +66,7 @@ app.use(express.static(path.join(__dirname, "public")))
 app.use("/api/v1/projects", projects)
 app.use("/api/v1/auth", auth)
 app.use("/api/v1/users", users)
+app.use("/api/v1/estimates", estimates)
 
 // Middleware is processed in order, so this error handler has to be after the mounted routers
 app.use(errorHandler)

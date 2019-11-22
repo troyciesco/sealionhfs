@@ -1,0 +1,23 @@
+[
+	{
+		"_id": "5d725a4a7b292f5f8ceff789",
+		"category": "test",
+		"amount": 45,
+		"project": "5d713995b721c3bb38c1f5d0",
+		"user": "5d7a514b5d2c12c7449be045"
+	},
+	{
+		"_id": "5d725c84c4ded7bcb480eaa0",
+		"category": "test2",
+		"amount": 93,
+		"project": "5d713995b721c3bb38c1f5d0",
+		"user": "5d7a514b5d2c12c7449be045"
+	},
+	{
+		"_id": "5d725cb9c4ded7bcb480eaa1",
+		"category": "test3",
+		"amount": 104,
+		"project": "5d713995b721c3bb38c1f5d0",
+		"user": "5d7a514b5d2c12c7449be045"
+	}
+]

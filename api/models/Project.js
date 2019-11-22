@@ -49,6 +49,10 @@ const ProjectSchema = new mongoose.Schema(
 			type: String,
 			default: `${process.env.FILE_UPLOAD_PATH}/no-photo.png`
 		},
+		estimateTotal: {
+			type: Number,
+			min: [0, "Cannot have a negative estimate."]
+		},
 		createdAt: {
 			type: Date,
 			default: Date.now
@@ -87,6 +91,14 @@ ProjectSchema.pre("save", async function(next) {
 	// Do not save address in db
 	this.address = undefined
 	next()
+})
+
+// Reverse populate with virtuals
+ProjectSchema.virtual("estimates", {
+	ref: "Estimate",
+	localField: "_id",
+	foreignField: "project",
+	justOne: false
 })
 
 module.exports = mongoose.model("Project", ProjectSchema)
