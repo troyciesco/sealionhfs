@@ -1,0 +1,34 @@
+[
+	{
+		"_id": "5d7a514b5d2c13c7449be040",
+		"name": "John Doe",
+		"website": "https://www.google.com",
+		"phone": "860-867-5309",
+		"email": "test1@gmail.com",
+		"user": "5d7a514b5d2c12c7449be045"
+	},
+	{
+		"_id": "5d7a514b5d2c13c7449be041",
+		"name": "Jane Doe",
+		"website": "https://www.google.com",
+		"phone": "860-867-5339",
+		"email": "test2@gmail.com",
+		"user": "5d7a514b5d2c12c7449be045"
+	},
+	{
+		"_id": "5d7a514b5d2c12c7439be042",
+		"name": "Mark Smith",
+		"website": "https://www.google.com",
+		"phone": "860-867-5209",
+		"email": "test3@gmail.com",
+		"user": "5d7a514b5d2c12c7449be045"
+	},
+	{
+		"_id": "5d7a514b5d2c12c7349be043",
+		"name": "Brett Jones",
+		"website": "https://www.google.com",
+		"phone": "860-867-2309",
+		"email": "test4@gmail.com",
+		"user": "5d7a514b5d2c12c7449be045"
+	}
+]

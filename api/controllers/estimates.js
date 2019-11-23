@@ -47,3 +47,56 @@ exports.createEstimate = asyncHandler(async (req, res, next) => {
 		data: estimate
 	})
 })
+
+// @desc    Update Existing estimate
+// @route   PUT /api/v1/estimates/:estimateId
+// @access  Private
+exports.updateEstimate = asyncHandler(async (req, res, next) => {
+	let estimate = await Estimate.findById(req.params.id)
+
+	if (!estimate) {
+		return next(new ErrorResponse(`Estimate not found with id of ${req.params.id}.`, 404))
+	}
+
+	// Ensure user is estimate owner
+	if (estimate.user.toString() !== req.user.id && req.user.role !== "admin") {
+		return next(
+			new ErrorResponse(
+				`User ${req.user.id} is not authorized to update estimate ${estimate._id}`,
+				401
+			)
+		)
+	}
+
+	estimate = await Estimate.findByIdAndUpdate(req.params.id, req.body, {
+		new: true,
+		runValidators: true
+	})
+
+	res.status(200).json({ success: true, data: estimate })
+})
+
+// @desc    Delete existing estimate
+// @route   DELETE /api/v1/estimates/:estimateId
+// @access  Private
+exports.deleteEstimate = asyncHandler(async (req, res, next) => {
+	let estimate = await Estimate.findById(req.params.id)
+
+	if (!estimate) {
+		return next(new ErrorResponse(`Estimate not found with id of ${req.params.id}.`, 404))
+	}
+
+	// Ensure user is estimate owner
+	if (estimate.user.toString() !== req.user.id && req.user.role !== "admin") {
+		return next(
+			new ErrorResponse(
+				`User ${req.user.id} is not authorized to delete estimate at ${estimate._id}`,
+				401
+			)
+		)
+	}
+
+	await estimate.remove()
+
+	res.status(200).json({ success: true, data: {} })
+})

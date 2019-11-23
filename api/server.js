@@ -18,6 +18,9 @@ const projects = require("./routes/projects")
 const auth = require("./routes/auth")
 const users = require("./routes/users")
 const estimates = require("./routes/estimates")
+const ledgers = require("./routes/ledgers")
+const tasks = require("./routes/tasks")
+const contacts = require("./routes/contacts")
 const errorHandler = require("./middleware/error")
 
 // Connect to database
@@ -67,6 +70,9 @@ app.use("/api/v1/projects", projects)
 app.use("/api/v1/auth", auth)
 app.use("/api/v1/users", users)
 app.use("/api/v1/estimates", estimates)
+app.use("/api/v1/ledgers", ledgers)
+app.use("/api/v1/tasks", tasks)
+app.use("/api/v1/contacts", contacts)
 
 // Middleware is processed in order, so this error handler has to be after the mounted routers
 app.use(errorHandler)

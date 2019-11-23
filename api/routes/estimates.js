@@ -1,5 +1,10 @@
 const express = require("express")
-const { getEstimates, createEstimate } = require("../controllers/estimates")
+const {
+	getEstimates,
+	createEstimate,
+	updateEstimate,
+	deleteEstimate
+} = require("../controllers/estimates")
 
 const Estimate = require("../models/Estimate")
 
@@ -13,4 +18,11 @@ router
 	.route("/")
 	.get(advancedResults(Estimate, { path: "project", select: "name" }), getEstimates)
 	.post(protect, createEstimate)
+
+router
+	.route("/:id")
+	// .get(getEstimate)
+	.put(protect, authorize("user", "admin"), updateEstimate)
+	.delete(protect, deleteEstimate)
+
 module.exports = router

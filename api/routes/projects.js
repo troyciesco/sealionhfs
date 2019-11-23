@@ -11,6 +11,8 @@ const Project = require("../models/Project")
 
 // Include other resource routers
 const estimateRouter = require("./estimates")
+const ledgerRouter = require("./ledgers")
+const taskRouter = require("./tasks")
 
 const router = express.Router()
 
@@ -21,6 +23,8 @@ const { protect, authorize } = require("../middleware/auth")
 
 // Re-route into other resource routers
 router.use("/:projectId/estimates", estimateRouter)
+router.use("/:projectId/ledgers", ledgerRouter)
+router.use("/:projectId/tasks", taskRouter)
 
 router
 	.route("/")
@@ -30,7 +34,7 @@ router
 router
 	.route("/:id")
 	.get(protect, getProject)
-	.put(protect, updateProject)
+	.put(protect, authorize("user", "admin"), updateProject)
 	.delete(protect, deleteProject)
 
 module.exports = router

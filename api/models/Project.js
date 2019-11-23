@@ -101,4 +101,18 @@ ProjectSchema.virtual("estimates", {
 	justOne: false
 })
 
+ProjectSchema.virtual("ledgers", {
+	ref: "Ledger",
+	localField: "_id",
+	foreignField: "project",
+	justOne: false
+})
+
+ProjectSchema.virtual("tasks", {
+	ref: "Task",
+	localField: "_id",
+	foreignField: "project",
+	justOne: false
+})
+
 module.exports = mongoose.model("Project", ProjectSchema)
