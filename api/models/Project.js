@@ -115,4 +115,13 @@ ProjectSchema.virtual("tasks", {
 	justOne: false
 })
 
+// Cascade delete associated items on project deletion
+ProjectSchema.pre("remove", async function(next) {
+	console.log(`Items being removed from bootcamp ${this._id}, ${this.name}`)
+	await this.model("Estimate").deleteMany({ project: this._id })
+	await this.model("Ledger").deleteMany({ project: this._id })
+	await this.model("Task").deleteMany({ project: this._id })
+	next()
+})
+
 module.exports = mongoose.model("Project", ProjectSchema)

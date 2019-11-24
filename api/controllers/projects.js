@@ -9,11 +9,7 @@ const Project = require("../models/Project")
 exports.getProjects = asyncHandler(async (req, res, next) => {
 	// Add user to body
 	req.body.user = req.user.id
-	const projects = await Project.find({ user: req.user.id }).populate(
-		"estimates",
-		"ledgers",
-		"tasks"
-	)
+	const projects = await Project.find({ user: req.user.id }).populate("estimates ledgers tasks")
 	return res.status(200).json({ success: true, count: projects.length, data: projects })
 })
 
@@ -23,7 +19,7 @@ exports.getProjects = asyncHandler(async (req, res, next) => {
 exports.getProject = asyncHandler(async (req, res, next) => {
 	req.body.user = req.user.id
 
-	const project = await Project.findById(req.params.id)
+	const project = await Project.findById(req.params.id).populate("estimates ledgers tasks")
 
 	if (!project) {
 		// return res.status(400).json({ success: false })
