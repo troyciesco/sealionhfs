@@ -53,6 +53,11 @@ EstimateSchema.post("save", function() {
 	this.constructor.getEstimateTotal(this.project)
 })
 
+// Call getEstimateTotal after estimate is updated
+EstimateSchema.post("findOneAndUpdate", function(updatedEstimate) {
+	updatedEstimate.constructor.getEstimateTotal(updatedEstimate.project)
+})
+
 // Call getEstimateTotal before remove
 EstimateSchema.pre("remove", function() {
 	this.constructor.getEstimateTotal(this.project)

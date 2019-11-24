@@ -1,5 +1,5 @@
 const express = require("express")
-const { getTasks, createTask, updateTask, deleteTask } = require("../controllers/tasks")
+const { getTasks, getTask, createTask, updateTask, deleteTask } = require("../controllers/tasks")
 
 const Task = require("../models/Task")
 
@@ -16,6 +16,7 @@ router
 
 router
 	.route("/:id")
+	.get(protect, getTask)
 	.put(protect, authorize("user", "admin"), updateTask)
 	.delete(protect, deleteTask)
 

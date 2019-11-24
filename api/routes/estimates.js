@@ -1,6 +1,7 @@
 const express = require("express")
 const {
 	getEstimates,
+	getEstimate,
 	createEstimate,
 	updateEstimate,
 	deleteEstimate
@@ -21,7 +22,7 @@ router
 
 router
 	.route("/:id")
-	// .get(getEstimate)
+	.get(protect, getEstimate)
 	.put(protect, authorize("user", "admin"), updateEstimate)
 	.delete(protect, deleteEstimate)
 

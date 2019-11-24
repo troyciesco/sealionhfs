@@ -17,6 +17,29 @@ exports.getEstimates = asyncHandler(async (req, res, next) => {
 	}
 })
 
+// @desc    Get single estimate
+// @route   GET /api/v1/estimates/:id
+// @access  Private
+exports.getEstimate = asyncHandler(async (req, res, next) => {
+	req.body.user = req.user.id
+
+	const estimate = await Estimate.findById(req.params.id)
+
+	if (!estimate) {
+		// return res.status(400).json({ success: false })
+		return next(new ErrorResponse(`Estimate not found with id of ${req.params.id}.`, 404))
+	}
+
+	// Ensure user is estimate owner
+	if (estimate.user.toString() !== req.user.id && req.user.role !== "admin") {
+		return next(
+			new ErrorResponse(`User ${req.user.id} is not authorized to access this resource.`, 401)
+		)
+	}
+
+	res.status(200).json({ success: true, content: estimate })
+})
+
 // @desc    Create new estimate
 // @route   POST /api/v1/projects/:projectId/estimates
 // @access  Private

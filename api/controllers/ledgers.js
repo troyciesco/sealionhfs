@@ -17,6 +17,29 @@ exports.getLedgers = asyncHandler(async (req, res, next) => {
 	}
 })
 
+// @desc    Get single ledger
+// @route   GET /api/v1/ledgers/:id
+// @access  Private
+exports.getLedger = asyncHandler(async (req, res, next) => {
+	req.body.user = req.user.id
+
+	const ledger = await Ledger.findById(req.params.id)
+
+	if (!ledger) {
+		// return res.status(400).json({ success: false })
+		return next(new ErrorResponse(`Ledger not found with id of ${req.params.id}.`, 404))
+	}
+
+	// Ensure user is ledger owner
+	if (ledger.user.toString() !== req.user.id && req.user.role !== "admin") {
+		return next(
+			new ErrorResponse(`User ${req.user.id} is not authorized to access this resource.`, 401)
+		)
+	}
+
+	res.status(200).json({ success: true, content: ledger })
+})
+
 // @desc    Create new ledgers
 // @route   POST /api/v1/projects/:projectId/ledgers
 // @access  Private

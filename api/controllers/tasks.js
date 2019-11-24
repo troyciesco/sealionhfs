@@ -17,6 +17,29 @@ exports.getTasks = asyncHandler(async (req, res, next) => {
 	}
 })
 
+// @desc    Get single task
+// @route   GET /api/v1/tasks/:id
+// @access  Private
+exports.getTask = asyncHandler(async (req, res, next) => {
+	req.body.user = req.user.id
+
+	const task = await Task.findById(req.params.id)
+
+	if (!task) {
+		// return res.status(400).json({ success: false })
+		return next(new ErrorResponse(`Task not found with id of ${req.params.id}.`, 404))
+	}
+
+	// Ensure user is task owner
+	if (task.user.toString() !== req.user.id && req.user.role !== "admin") {
+		return next(
+			new ErrorResponse(`User ${req.user.id} is not authorized to access this resource.`, 401)
+		)
+	}
+
+	res.status(200).json({ success: true, content: task })
+})
+
 // @desc    Create new tasks
 // @route   POST /api/v1/projects/:projectId/tasks
 // @access  Private

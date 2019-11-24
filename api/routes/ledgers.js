@@ -1,5 +1,11 @@
 const express = require("express")
-const { getLedgers, createLedger, updateLedger, deleteLedger } = require("../controllers/ledgers")
+const {
+	getLedgers,
+	getLedger,
+	createLedger,
+	updateLedger,
+	deleteLedger
+} = require("../controllers/ledgers")
 
 const Ledger = require("../models/Ledger")
 
@@ -16,7 +22,7 @@ router
 
 router
 	.route("/:id")
-	// .get(getLedger)
+	.get(protect, getLedger)
 	.put(protect, updateLedger)
 	.delete(protect, deleteLedger)
 
