@@ -2,7 +2,22 @@ const mongoose = require("mongoose")
 
 const EstimateSchema = new mongoose.Schema(
 	{
-		category: String,
+		categoryPrimary: {
+			type: String,
+			enum: [
+				"interior work",
+				"exterior work",
+				"buying costs",
+				"holding costs",
+				"selling costs",
+				"misc"
+			],
+			default: "misc"
+		},
+		categorySecondary: {
+			type: String,
+			default: "misc"
+		},
 		amount: Number,
 		createdAt: {
 			type: Date,

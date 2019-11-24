@@ -10,7 +10,6 @@ const Project = require("../models/Project")
 exports.getLedgers = asyncHandler(async (req, res, next) => {
 	if (req.params.projectId) {
 		const ledgers = await Ledger.find({ project: req.params.projectId })
-
 		return res.status(200).json({ success: true, count: ledgers.length, data: ledgers })
 	} else {
 		res.status(200).json(res.advancedResults)
@@ -26,7 +25,6 @@ exports.getLedger = asyncHandler(async (req, res, next) => {
 	const ledger = await Ledger.findById(req.params.id)
 
 	if (!ledger) {
-		// return res.status(400).json({ success: false })
 		return next(new ErrorResponse(`Ledger not found with id of ${req.params.id}.`, 404))
 	}
 

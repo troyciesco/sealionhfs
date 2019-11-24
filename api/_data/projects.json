@@ -22,7 +22,7 @@
 		"user": "5c8a1d5b0190b214360dc031",
 		"name": "Rental in Storrs",
 		"address": "41 Crystal Lane Apt B Storrs CT 06268",
-		"strategy": "BRRRR",
+		"strategy": "Rental",
 		"stage": "Lead",
 		"status": "Active"
 	},
@@ -41,6 +41,87 @@
 		"name": "Wholesale on Oak Street",
 		"address": "45 Oak Street",
 		"strategy": "Wholesale",
+		"stage": "Lead",
+		"status": "Active"
+	},
+	{
+		"_id": "5feb0dbd403ef7b56984a21d",
+		"user": "9daf0e730e474bb5f992bf64",
+		"name": "Rental on Iron Street",
+		"address": "55 Iron Street",
+		"strategy": "Rental",
+		"stage": "Lead",
+		"status": "Active"
+	},
+	{
+		"_id": "5feb0dd5403ef7b56984a21f",
+		"user": "5c8a1d5b0190b214360dc031",
+		"name": "Buy and Hold on Ford Road",
+		"address": "96 Ford Road",
+		"strategy": "Buy and Hold",
+		"stage": "Lead",
+		"status": "Active"
+	},
+	{
+		"_id": "5feb0dd5403ef7b56984a220",
+		"user": "9daf0e730e474bb5f992bf64",
+		"name": "Fix and Flip on Stafford Road",
+		"address": "519 Stafford Road",
+		"strategy": "Fix and Flip",
+		"stage": "Lead",
+		"status": "Active"
+	},
+	{
+		"_id": "5ddb0de7403ef7b56984a221",
+		"user": "5d7a514b5d2c12c7449be045",
+		"name": "Wholesale on Water Lane",
+		"address": "1215 Water Lane",
+		"strategy": "Wholesale",
+		"stage": "Lead",
+		"status": "Active"
+	},
+	{
+		"_id": "5ddb0dfe403ef7b56984a222",
+		"user": "9daf0e730e474bb5f992bf64",
+		"name": "Fix and Flip on Cactus Way",
+		"address": "126 Cactus Way",
+		"strategy": "Wholesale",
+		"stage": "Lead",
+		"status": "Active"
+	},
+	{
+		"_id": "5ddb0e230e475bb5f992bf57",
+		"user": "5c8a1d5b0190b214360dc031",
+		"name": "New Construction on Cobb Road",
+		"address": "15 Cobb Road",
+		"strategy": "New Construction",
+		"stage": "Lead",
+		"status": "Active"
+	},
+	{
+		"_id": "5ddb0e280e475bb5f992bf58",
+		"user": "5c8a1d5b0190b214360dc031",
+		"name": "Fix and Flip on Yankee Way",
+		"address": "28 Yankee Way",
+		"strategy": "Fix and Flip",
+		"stage": "Lead",
+		"status": "Active"
+	},
+	{
+		"_id": "5ddb0e2c0e475bb5f992bf59",
+		"user": "9daf0e730e474bb5f992bf64",
+		"name": "Fix and Flip on Coventry Road",
+		"address": "102 Coventry Road",
+		"strategy": "Fix and Flip",
+		"stage": "Lead",
+		"status": "Active"
+	},
+	{
+		"_id": "5ddb0e310e475bb5f992bf5a",
+		"user": "5c8a1d5b0190b214360dc031",
+		"name": "Rental on Franklin Street",
+		"address": "20 Franklin Street",
+		"strategy": "Rental",
 		"stage": "Lead",
 		"status": "Active"
 	}

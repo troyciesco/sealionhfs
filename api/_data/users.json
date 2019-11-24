@@ -9,6 +9,14 @@
 	},
 	{
 		"_id": "5c8a1d5b0190b214360dc031",
+		"name": "John Doe",
+		"company": "John's Home Improvement",
+		"email": "john@gmail.com",
+		"role": "user",
+		"password": "testpass"
+	},
+	{
+		"_id": "9daf0e730e474bb5f992bf64",
 		"name": "Byron Torrente",
 		"company": "Torrente Home Pros",
 		"email": "byron@gmail.com",

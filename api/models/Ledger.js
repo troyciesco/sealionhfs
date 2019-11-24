@@ -2,9 +2,26 @@ const mongoose = require("mongoose")
 
 const LedgerSchema = new mongoose.Schema(
 	{
-		category: String,
-		type: String,
+		transactionType: String,
 		amount: Number,
+		categoryPrimary: {
+			type: String,
+			enum: [
+				"interior work",
+				"exterior work",
+				"buying costs",
+				"holding costs",
+				"selling costs",
+				"rental income",
+				"misc"
+			],
+			default: "misc"
+		},
+		categorySecondary: {
+			type: String,
+			default: "misc"
+		},
+		description: String,
 		createdAt: {
 			type: Date,
 			default: Date.now

@@ -35,6 +35,7 @@ const ProjectSchema = new mongoose.Schema(
 		},
 		strategy: {
 			type: String,
+			enum: ["Fix and Flip", "Buy and Hold", "Wholesale", "New Construction", "Rental"],
 			default: "Fix and Flip"
 		},
 		stage: {
