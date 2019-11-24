@@ -22,6 +22,7 @@ router
 
 router
 	.route("/:id")
+	// .get(protect, getContact)
 	.get(protect, getContact)
 	.put(protect, updateContact)
 	.delete(protect, deleteContact)

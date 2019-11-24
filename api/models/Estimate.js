@@ -17,7 +17,13 @@ const EstimateSchema = new mongoose.Schema(
 			type: mongoose.Schema.ObjectId,
 			ref: "User",
 			required: true
-		}
+		},
+		contacts: [
+			{
+				type: mongoose.Schema.ObjectId,
+				ref: "Contact"
+			}
+		]
 	},
 	{
 		toJSON: { virtuals: true },

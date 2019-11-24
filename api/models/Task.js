@@ -11,7 +11,7 @@ const TaskSchema = new mongoose.Schema(
 		description: String,
 		dueDate: {
 			type: Date,
-			default: Date.now
+			default: new Date("Jan 1 2020")
 		},
 		createdAt: {
 			type: Date,
@@ -26,7 +26,13 @@ const TaskSchema = new mongoose.Schema(
 			type: mongoose.Schema.ObjectId,
 			ref: "User",
 			required: true
-		}
+		},
+		contacts: [
+			{
+				type: mongoose.Schema.ObjectId,
+				ref: "Contact"
+			}
+		]
 	},
 	{
 		toJSON: { virtuals: true },

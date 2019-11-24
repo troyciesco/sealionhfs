@@ -34,4 +34,33 @@ const ContactSchema = new mongoose.Schema(
 	}
 )
 
+// Reverse populate with virtuals
+ContactSchema.virtual("estimates", {
+	ref: "Estimate",
+	localField: "_id",
+	foreignField: "contacts",
+	justOne: false
+})
+
+ContactSchema.virtual("ledgers", {
+	ref: "Ledger",
+	localField: "_id",
+	foreignField: "contacts",
+	justOne: false
+})
+
+ContactSchema.virtual("tasks", {
+	ref: "Task",
+	localField: "_id",
+	foreignField: "contacts",
+	justOne: false
+})
+
+// // Cascade delete associated references on contact deletion
+// ContactSchema.pre("remove", async function(next) {
+// 	console.log(`Items being removed related to ${this._id}`)
+// 	await this.model("Estimate").updateMany({ contacts: this._id }, { contacts: [] })
+// 	next()
+// })
+
 module.exports = mongoose.model("Contact", ContactSchema)

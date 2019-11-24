@@ -18,7 +18,7 @@ exports.getContacts = asyncHandler(async (req, res, next) => {
 exports.getContact = asyncHandler(async (req, res, next) => {
 	req.body.user = req.user.id
 
-	const contact = await Contact.findById(req.params.id)
+	const contact = await Contact.findById(req.params.id).populate("estimates ledgers tasks")
 
 	if (!contact) {
 		// return res.status(400).json({ success: false })

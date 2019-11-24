@@ -53,6 +53,9 @@ const ProjectSchema = new mongoose.Schema(
 			type: Number,
 			min: [0, "Cannot have a negative estimate."]
 		},
+		ledgerTotal: {
+			type: Number
+		},
 		createdAt: {
 			type: Date,
 			default: Date.now
@@ -117,7 +120,7 @@ ProjectSchema.virtual("tasks", {
 
 // Cascade delete associated items on project deletion
 ProjectSchema.pre("remove", async function(next) {
-	console.log(`Items being removed from bootcamp ${this._id}, ${this.name}`)
+	console.log(`Items being removed from project ${this._id}, ${this.name}`)
 	await this.model("Estimate").deleteMany({ project: this._id })
 	await this.model("Ledger").deleteMany({ project: this._id })
 	await this.model("Task").deleteMany({ project: this._id })
