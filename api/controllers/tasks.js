@@ -57,7 +57,7 @@ exports.createTask = asyncHandler(async (req, res, next) => {
 	if (project.user.toString() !== req.user.id && req.user.role !== "admin") {
 		return next(
 			new ErrorResponse(
-				`User ${req.user.id} is not authorized to add a course to ${project._id}`,
+				`User ${req.user.id} is not authorized to add a task to ${project._id}`,
 				401
 			)
 		)
